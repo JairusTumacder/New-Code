@@ -7,10 +7,10 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.PivotSubsystem;
 
-public class PID2 extends CommandBase {
+public class MidPosition extends CommandBase {
   private PivotSubsystem pivotSubsystem;
   private double setpoint;
-  public PID2(PivotSubsystem pivotSubs) {
+  public MidPosition(PivotSubsystem pivotSubs) {
     pivotSubsystem = pivotSubs;
     addRequirements(pivotSubs);
     setpoint = 0;
