@@ -19,7 +19,7 @@ public class PivotSubsystem extends SubsystemBase{
     private double setpoint;
     private double manualSpeed = 0;
     private double encoderValue;
-
+    
     public PivotSubsystem(){
         motor = new TalonFX(PivotConstants.kTalonFXPort);
     }

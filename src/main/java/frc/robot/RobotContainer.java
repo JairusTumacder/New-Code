@@ -10,7 +10,8 @@ import frc.robot.Constants.OperatorConstants;
 
 public class RobotContainer {
   private PivotSubsystem pivot = new PivotSubsystem();
-  private TeleopPivot manual = new TeleopPivot(pivot, 0.01);
+  private TeleopPivot manualUp = new TeleopPivot(pivot, 0.01);
+  private TeleopPivot manualDown = new TeleopPivot(pivot, -0.01);
   private LowPosition low = new LowPosition(pivot);
   private MidPosition mid = new MidPosition(pivot);
   private Joystick joystick = new Joystick(OperatorConstants.kDriverControllerPort);
@@ -18,8 +19,9 @@ public class RobotContainer {
     configureBindings();
   }
   private void configureBindings() {
-    new JoystickButton(joystick, 1).whileTrue(manual);
-    new JoystickButton(joystick, 2).onTrue(low);
-    new JoystickButton(joystick, 3).onTrue(mid);
+    new JoystickButton(joystick, joystick.getPOV(0)).whileTrue(manualUp);
+    new JoystickButton(joystick, joystick.getPOV(180)).whileTrue(manualDown);
+    new JoystickButton(joystick, 1).onTrue(low);
+    new JoystickButton(joystick, 2).onTrue(mid);
   }
 }
